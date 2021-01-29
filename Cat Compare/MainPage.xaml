@@ -19,7 +19,8 @@
 
         <Border Grid.Column="0" Background="#dddddd"></Border>
         <Border Grid.Column="1" Background="#dddddd"></Border>
-     
+        <Grid x:Name="GlassHost"></Grid>
+
         <StackPanel Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Button>Open a folder or a file</Button>
         </StackPanel>
