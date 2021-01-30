@@ -22,10 +22,12 @@
         <Grid x:Name="GlassHost"></Grid>
 
         <StackPanel Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Button>Open a folder or a file</Button>
+            <!--<TextBox></TextBox>-->
+            <Button Click="Button_Click">Open a folder or a file</Button>
         </StackPanel>
         <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Button>Open another folder or a file</Button>
+            <!--<TextBox></TextBox>-->
+            <Button Click="Button_Click_1">Open another folder or a file</Button>
         </StackPanel>
     </Grid>
 </Page>
