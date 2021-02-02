@@ -6,5 +6,6 @@
   </PropertyGroup>
   <PropertyGroup>
     <SplashScreenSource>C:\Users\liuxingliang\Desktop\copy.png</SplashScreenSource>
+    <ProjectView>ProjectFiles</ProjectView>
   </PropertyGroup>
 </Project>

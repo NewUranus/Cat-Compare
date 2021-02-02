@@ -26,15 +26,21 @@ namespace Cat_Compare
         {
             this.InitializeComponent();
 
-            //Windows.UI.Composition.Visual hostVisual = Windows.UI.Xaml.Hosting.ElementCompositionPreview.GetElementVisual(GlassHost);
-            //Windows.UI.Composition.Compositor compositor = hostVisual.Compositor;
-            //var backdropBrush = compositor.CreateHostBackdropBrush();
-            //var glassVisual = compositor.CreateSpriteVisual();
-            //glassVisual.Brush = backdropBrush;
-            //Windows.UI.Xaml.Hosting.ElementCompositionPreview.SetElementChildVisual(GlassHost, glassVisual);
-            //var bindSizeAnimation = compositor.CreateExpressionAnimation("hostVisual.Size");
-            //bindSizeAnimation.SetReferenceParameter("hostVisual", hostVisual);
-            //glassVisual.StartAnimation("Size", bindSizeAnimation);
+            Windows.ApplicationModel.Core.CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
+
+            Windows.UI.Composition.Visual hostVisual = Windows.UI.Xaml.Hosting.ElementCompositionPreview.GetElementVisual(GlassHost);
+            Windows.UI.Composition.Compositor compositor = hostVisual.Compositor;
+            var backdropBrush = compositor.CreateHostBackdropBrush();
+            var glassVisual = compositor.CreateSpriteVisual();
+            glassVisual.Brush = backdropBrush;
+            Windows.UI.Xaml.Hosting.ElementCompositionPreview.SetElementChildVisual(GlassHost, glassVisual);
+            var bindSizeAnimation = compositor.CreateExpressionAnimation("hostVisual.Size");
+            bindSizeAnimation.SetReferenceParameter("hostVisual", hostVisual);
+            glassVisual.StartAnimation("Size", bindSizeAnimation);
+
+            //
+            RichEditBox1.Visibility = Visibility.Collapsed;
+            RichEditBox2.Visibility = Visibility.Collapsed;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

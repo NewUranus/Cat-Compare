@@ -26,9 +26,10 @@
             <RichEditBox Name="RichEditBox1"></RichEditBox>
             <Button Click="Button_Click">Open a folder or a file</Button>
         </StackPanel>
+
         <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
             <!--<TextBox></TextBox>-->
-            <RichEditBox></RichEditBox>
+            <RichEditBox Name="RichEditBox2"></RichEditBox>
             <Button Click="Button_Click_1">Open another folder or a file</Button>
         </StackPanel>
     </Grid>
