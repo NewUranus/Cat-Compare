@@ -130,6 +130,8 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Assets\file-directory.png" />
+    <Content Include="Assets\file-directory-200.png" />
     <Content Include="Assets\logo.scale-100.png" />
     <Content Include="Assets\logo.scale-125.png" />
     <Content Include="Assets\logo.scale-150.png" />

@@ -38,6 +38,7 @@ namespace Cat_Compare
             bindSizeAnimation.SetReferenceParameter("hostVisual", hostVisual);
             glassVisual.StartAnimation("Size", bindSizeAnimation);
 
+
             //
             RichEditBox1.Visibility = Visibility.Collapsed;
             RichEditBox2.Visibility = Visibility.Collapsed;
