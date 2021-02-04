@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -28,24 +29,32 @@ namespace Cat_Compare
 
             Windows.ApplicationModel.Core.CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
 
-            Windows.UI.Composition.Visual hostVisual = Windows.UI.Xaml.Hosting.ElementCompositionPreview.GetElementVisual(GlassHost);
-            Windows.UI.Composition.Compositor compositor = hostVisual.Compositor;
-            var backdropBrush = compositor.CreateHostBackdropBrush();
-            var glassVisual = compositor.CreateSpriteVisual();
-            glassVisual.Brush = backdropBrush;
-            Windows.UI.Xaml.Hosting.ElementCompositionPreview.SetElementChildVisual(GlassHost, glassVisual);
-            var bindSizeAnimation = compositor.CreateExpressionAnimation("hostVisual.Size");
-            bindSizeAnimation.SetReferenceParameter("hostVisual", hostVisual);
-            glassVisual.StartAnimation("Size", bindSizeAnimation);
-
-
             //
             RichEditBox1.Visibility = Visibility.Collapsed;
             RichEditBox2.Visibility = Visibility.Collapsed;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
+            Windows.Storage.StorageFolder picturesFolder = Windows.Storage.KnownFolders.PicturesLibrary;
+            System.Text.StringBuilder outputText = new StringBuilder();
+
+            IReadOnlyList<Windows.Storage.IStorageItem> itemsList = await picturesFolder.GetItemsAsync();
+
+            foreach (var item in itemsList)
+            {
+                if (item is Windows.Storage.StorageFolder)
+                {
+                    outputText.Append(item.Name + " folder\n");
+
+                }
+                else
+                {
+                    outputText.Append(item.Name + "\n");
+
+                }
+            }
+            TextBlock1.Text = outputText.ToString() + "\nPath:==" + picturesFolder.Path;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

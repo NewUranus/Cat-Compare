@@ -6,12 +6,12 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    >
 
     <!--<Page.Resources>
         
     </Page.Resources>-->
-    <Grid>
+    <Grid Background="{ThemeResource SystemControlBaseHighAcrylicWindowMediumBrush}">
       
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5*"></ColumnDefinition>
@@ -22,14 +22,13 @@
         <Border Grid.Column="0" Background="#dddddd"></Border>
         <Border Grid.Column="1" Background="#dddddd"></Border>
 
-        <Grid x:Name="GlassHost" Grid.Row="0" Grid.Column="0">
-        </Grid>
         <!--<Grid x:Name="GlassHost1" Grid.Row="0" Grid.Column="1">
         </Grid>-->
 
         <StackPanel Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
             <!--<TextBox></TextBox>-->
             <RichEditBox Name="RichEditBox1"></RichEditBox>
+            <TextBlock x:Name="TextBlock1"></TextBlock>
             <Image Source="/Assets/file-directory-200.png" Width="50"></Image>
             <Button Click="Button_Click">Open a folder or a file</Button>
         </StackPanel>
