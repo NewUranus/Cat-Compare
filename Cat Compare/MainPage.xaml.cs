@@ -37,7 +37,7 @@ namespace Cat_Compare
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             Windows.Storage.StorageFolder picturesFolder = Windows.Storage.KnownFolders.PicturesLibrary;
-            System.Text.StringBuilder outputText = new StringBuilder();
+            var sss = Windows.Storage.StorageFolder.GetFolderFromPathAsync("C:").GetResults();
 
             IReadOnlyList<Windows.Storage.IStorageItem> itemsList = await picturesFolder.GetItemsAsync();
 

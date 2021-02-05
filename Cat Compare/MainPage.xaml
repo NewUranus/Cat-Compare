@@ -33,7 +33,6 @@
             <Button Click="Button_Click">Open a folder or a file</Button>
         </StackPanel>
 
-
         <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
             <!--<TextBox></TextBox>-->
             <RichEditBox Name="RichEditBox2"></RichEditBox>
