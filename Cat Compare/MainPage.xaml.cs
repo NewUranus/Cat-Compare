@@ -36,25 +36,23 @@ namespace Cat_Compare
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            Windows.Storage.StorageFolder picturesFolder = Windows.Storage.KnownFolders.PicturesLibrary;
-            var sss = Windows.Storage.StorageFolder.GetFolderFromPathAsync("C:").GetResults();
-
-            IReadOnlyList<Windows.Storage.IStorageItem> itemsList = await picturesFolder.GetItemsAsync();
-
-            foreach (var item in itemsList)
+            var picker = new Windows.Storage.Pickers.FileOpenPicker();
+            picker.ViewMode = Windows.Storage.Pickers.PickerViewMode.Thumbnail;
+            //picker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.PicturesLibrary;
+            picker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
+            picker.FileTypeFilter.Add("*");
+            //picker.FileTypeFilter.Add(".jpeg");
+            //picker.FileTypeFilter.Add(".png");
+            Windows.Storage.StorageFile file = await picker.PickSingleFileAsync();
+            if (file != null)
             {
-                if (item is Windows.Storage.StorageFolder)
-                {
-                    outputText.Append(item.Name + " folder\n");
-
-                }
-                else
-                {
-                    outputText.Append(item.Name + "\n");
-
-                }
+                // Application now has read/write access to the picked file
+                this.TextBlock1.Text = "Picked photo: " + file.Name;
             }
-            TextBlock1.Text = outputText.ToString() + "\nPath:==" + picturesFolder.Path;
+            else
+            {
+                this.TextBlock1.Text = "Operation cancelled.";
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
